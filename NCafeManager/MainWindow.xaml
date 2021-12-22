@@ -1,0 +1,97 @@
+﻿<Window x:Class="NCafeManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+    <Grid Margin="0,0,0,9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="69*" />
+            <ColumnDefinition Width="101*" />
+            <ColumnDefinition Width="484*" />
+            <ColumnDefinition Width="55*" />
+            <ColumnDefinition Width="226*" />
+            <ColumnDefinition Width="66*" />
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Left" x:Name="__url" Margin="22,63,0,0" TextWrapping="Wrap"
+                 Text="https://cafe.naver.com/steamindiegame"
+                 VerticalAlignment="Top" Width="381" Height="27" Grid.ColumnSpan="3" />
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Name="log" Margin="340,45,10,394" Grid.Column="2"
+                 Grid.ColumnSpan="3" />
+        <Label Content="카페 주소" HorizontalAlignment="Left" Margin="22,32,0,0" VerticalAlignment="Top"
+               RenderTransformOrigin="0.555,1.835" Grid.ColumnSpan="2" Height="26" Width="62" />
+        <Label Content="검색할 게시판 목록" HorizontalAlignment="Left" Margin="22,146,0,0" VerticalAlignment="Top"
+               RenderTransformOrigin="-0.358,0.616" Grid.ColumnSpan="2" Height="26" Width="114" />
+        <Button x:Name="__add_menu" Content="추가" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"
+                Height="28" Width="113" Grid.Column="2" Click="__add_menu_Click" />
+        <TextBox x:Name="__menu" HorizontalAlignment="Left" Margin="10,180,0,0" TextWrapping="Wrap" Text="게시판 이름 입력"
+                 VerticalAlignment="Top" Width="113" Grid.Column="2" Height="18" TextAlignment="Left" />
+        <ListBox x:Name="__menus" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,180,10,312" Grid.ColumnSpan="2" />
+        <ListBox x:Name="__keywords" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2"
+                 Margin="34,409,4,23" />
+        <TextBox x:Name="__input_keyword" Grid.Column="2" HorizontalAlignment="Left" Margin="10,409,0,0"
+                 TextWrapping="Wrap" Text="키워드 입력" VerticalAlignment="Top" Width="120" Height="18" />
+        <Button x:Name="__keyword_add" Grid.Column="2" Content="추가" HorizontalAlignment="Left" Margin="10,479,0,0"
+                VerticalAlignment="Top" Height="27" Width="120" Click="__keyword_add_Click" />
+        <RadioButton GroupName="keyword_op" x:Name="__keyword_or" Grid.Column="2" Content="OR" HorizontalAlignment="Left" Margin="10,441,0,0"
+                     VerticalAlignment="Top" IsChecked="True" Height="15" Width="35" />
+        <RadioButton GroupName="keyword_op" x:Name="__keyword_and" Grid.Column="2" Content="AND" HorizontalAlignment="Left"
+                     Margin="10,461,0,0" VerticalAlignment="Top" Height="15" Width="45" />
+        <Button Grid.Column="2" Content="시작" HorizontalAlignment="Left" Margin="128,25,0,0"
+                VerticalAlignment="Top" Click="Button_Click_1" Height="20" Width="105" />
+        <ListBox x:Name="__authors" d:ItemsSource="{d:SampleData ItemCount=5}"
+                 Margin="176,409,175,23" Grid.Column="2" />
+        <TextBox x:Name="__input_author" Grid.Column="2" HorizontalAlignment="Left" Margin="318,409,0,0"
+                 TextWrapping="Wrap" Text="키워드 입력" VerticalAlignment="Top" Width="120" Height="18" />
+        <Button x:Name="__author_add" Grid.Column="2" Content="추가" HorizontalAlignment="Left" Margin="318,432,0,0"
+                VerticalAlignment="Top" Height="27" Width="120" Click="__author_add_Click" />
+        <ListBox x:Name="__time" d:ItemsSource="{d:SampleData ItemCount=5}"
+                 Margin="483,409,144,23" Grid.Column="2" Grid.ColumnSpan="3" />
+        <TextBox x:Name="__input_time" Grid.Column="4" HorizontalAlignment="Left" Margin="83,409,0,0"
+                 TextWrapping="Wrap" Text="키워드 입력" VerticalAlignment="Top" Width="120" Height="18" />
+        <Button x:Name="__time_add" Grid.Column="4" Content="추가" HorizontalAlignment="Left" Margin="83,468,0,0"
+                VerticalAlignment="Top" Height="27" Width="120" Click="__time_add_Click"
+                RenderTransformOrigin="0.504,1.187" />
+        <RadioButton GroupName="time_op" x:Name="__time_before" Grid.Column="4" Content="before" HorizontalAlignment="Left"
+                     Margin="83,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.763" IsChecked="True" Height="15" Width="55"/>
+        <RadioButton GroupName="time_op" x:Name="__time_after" Grid.Column="4" Content="after" HorizontalAlignment="Left"
+                     Margin="83,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.712,-0.176" Height="15" Width="44" />
+        <RadioButton GroupName="keyword" x:Name="__keyword_include" Content="필수" HorizontalAlignment="Left"
+                     Margin="34,355,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="91"
+                     Checked="__keyword_include_Checked" IsChecked="True" />
+        <RadioButton GroupName="keyword" x:Name="__keyword_not_requisite" Content="부가" HorizontalAlignment="Left"
+                     Margin="34,371,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="91" />
+        <RadioButton GroupName="keyword" x:Name="__keyword_unused" Content="제외" HorizontalAlignment="Left"
+                     Margin="34,388,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="91" />
+        <RadioButton GroupName="author" x:Name="__author_include" Content="필수" HorizontalAlignment="Left"
+                     Margin="176,355,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2"
+                     IsChecked="True" />
+        <RadioButton GroupName="author" x:Name="__author_not_requisite" Content="부가" HorizontalAlignment="Left"
+                     Margin="176,371,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2" />
+        <RadioButton GroupName="author" x:Name="__author_unused" Content="제외" HorizontalAlignment="Left"
+                     Margin="176,388,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2" />
+        <RadioButton GroupName="time" x:Name="__time_include" Content="필수" HorizontalAlignment="Left"
+                     Margin="483,355,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2"
+                     Grid.ColumnSpan="3" IsChecked="True" />
+        <RadioButton GroupName="time" x:Name="__time_not_requisite" Content="부가" HorizontalAlignment="Left"
+                     Margin="483,371,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2"
+                     Grid.ColumnSpan="3" />
+        <RadioButton GroupName="time" x:Name="__time_unused" Content="제외" HorizontalAlignment="Left"
+                     Margin="483,388,0,0" VerticalAlignment="Top" Height="16" Width="91" Grid.Column="2"
+                     Grid.ColumnSpan="3" />
+        <Label Content="Keyword" HorizontalAlignment="Left" Margin="34,329,0,0" VerticalAlignment="Top"
+               Grid.ColumnSpan="2" Width="66" Height="26" />
+        <Label Grid.Column="2" Content="Author" HorizontalAlignment="Left" Margin="176,329,0,0" VerticalAlignment="Top" Height="26" Width="47" />
+        <Label Grid.Column="2" Content="Time" HorizontalAlignment="Left" Margin="483,329,0,0" VerticalAlignment="Top"
+               Grid.ColumnSpan="2" Height="26" Width="36" />
+        <Label Grid.Column="2" Content="Log" HorizontalAlignment="Left" Margin="340,19,0,0" VerticalAlignment="Top" Height="26" Width="30" />
+        <Label Content="저장 위치" Margin="22,90,70,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26"/>
+        <TextBox Name="__path" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="22,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" IsReadOnly="True" Height="18"/>
+        <Button x:Name="__browse" Grid.Column="2" Content="..." HorizontalAlignment="Left" Margin="200,114,0,0" VerticalAlignment="Top" Width="33" Click="__browse_Click" Height="20"/>
+        <ProgressBar x:Name="__status_bar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="340,236,0,0" VerticalAlignment="Top" Width="410" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</Window>
