@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,21 @@ namespace NCafeManager
         {
             _packedArticles = packedArticles;
         }
+        private string EscapeIllegalCSVCharacters(string str)
+        {
+            string data = str;
+            if (data.Contains("\""))
+            {
+                data = data.Replace("\"", "\"\"");
+                data = String.Format("\"{0}\"", data);
+            }
+            else if (data.Contains(",") || data.Contains(System.Environment.NewLine))
+            {
+                data = String.Format("\"{0}\"", data);
+            }
 
+            return data;
+        }
         public Task Write(string parentPath)
         {
             return new Task(delegate
@@ -36,7 +51,7 @@ namespace NCafeManager
                         writer.WriteLine("제목,작성자,작성 시간,URL");
                         packedArticles.Articles.ForEach(article =>
                         {
-                            writer.WriteLine("{0},{1},{2},{3}",article.Title,article.Author,article.Time,article.PathUrl);
+                            writer.WriteLine("{0},{1},{2},{3}",EscapeIllegalCSVCharacters(article.Title),EscapeIllegalCSVCharacters(article.Author),article.Time,article.PathUrl);
                         });
                         writer.Flush();
                         writer.Close();

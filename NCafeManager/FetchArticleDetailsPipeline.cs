@@ -80,10 +80,9 @@ namespace Pipelines
 
                                     var titleNode = articleNode.FindElement(By.ClassName("article"));
                                     var title = titleNode.Text;
-                                    var dateNode = articleNode.FindElement(By.ClassName("td_date"));
+                                    var dateNode = articleNode.FindElement(By.XPath(".//td[@class='td_date']"));
 
-                                    var authorRoot = articleNode.FindElement(By.ClassName("td_name"));
-                                    var authorNode = authorRoot.FindElement(By.TagName("a"));
+                                    var authorNode = articleNode.FindElement(By.XPath(".//a[@href='#']"));
 
                                     var date = dateNode.Text;
                                     DateTime dateTime;
