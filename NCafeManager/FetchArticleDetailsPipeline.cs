@@ -55,10 +55,7 @@ namespace Pipelines
                                             By.CssSelector("#main-area > div:nth-child(6) > table > tbody")));
 
                                 var noDataElem = rootNode.FindElements(By.ClassName("nodata"));
-                                if (noDataElem.Count > 0)
-                                {
-                                    break;
-                                }
+                                if (noDataElem.Count > 0) break;
                                 nodes = rootNode.FindElements(By.TagName("tr"));
                                 MainWindow.GetInstance().Dispatcher.Invoke(delegate
                                 {
@@ -68,7 +65,8 @@ namespace Pipelines
                                 });
                                 foreach (var articleNode in nodes)
                                 {
-                                    MainWindow.GetInstance().Dispatcher.Invoke(() => MainWindow.GetInstance().IncrementProgressBar(1));
+                                    MainWindow.GetInstance().Dispatcher.Invoke(() =>
+                                        MainWindow.GetInstance().IncrementProgressBar(1));
                                     try
                                     {
                                         articleNode.FindElement(By.ClassName("article"));
@@ -145,10 +143,10 @@ namespace Pipelines
                                         }
                                     }
 
-                                    if (keywordCond || authorCond || timeCond ||(
+                                    if (keywordCond || authorCond || timeCond ||
                                         cond.ConditionKeywordParentPipeline == null &&
                                         cond.ConditionAuthorParentPipeline == null &&
-                                        cond.ConditionTimeParentPipeline == null))
+                                        cond.ConditionTimeParentPipeline == null)
                                     {
                                         var article = new Article();
                                         article.Author = author;
@@ -170,10 +168,8 @@ namespace Pipelines
                             } while (nodes != null && nodes.Any());
 
                             packedArticleList.Add(new KeyValuePair<string, PackedArticles>(menuName, packedArticles));
-                            MainWindow.GetInstance().Dispatcher.Invoke(delegate
-                            {
-                                MainWindow.GetInstance().ClearLog();
-                            });
+                            MainWindow.GetInstance().Dispatcher
+                                .Invoke(delegate { MainWindow.GetInstance().ClearLog(); });
                         }
                     }
 

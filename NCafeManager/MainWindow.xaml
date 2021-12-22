@@ -36,9 +36,11 @@
                  TextWrapping="Wrap" Text="키워드 입력" VerticalAlignment="Top" Width="120" Height="18" />
         <Button x:Name="__keyword_add" Grid.Column="2" Content="추가" HorizontalAlignment="Left" Margin="10,479,0,0"
                 VerticalAlignment="Top" Height="27" Width="120" Click="__keyword_add_Click" />
-        <RadioButton GroupName="keyword_op" x:Name="__keyword_or" Grid.Column="2" Content="OR" HorizontalAlignment="Left" Margin="10,441,0,0"
+        <RadioButton GroupName="keyword_op" x:Name="__keyword_or" Grid.Column="2" Content="OR"
+                     HorizontalAlignment="Left" Margin="10,441,0,0"
                      VerticalAlignment="Top" IsChecked="True" Height="15" Width="35" />
-        <RadioButton GroupName="keyword_op" x:Name="__keyword_and" Grid.Column="2" Content="AND" HorizontalAlignment="Left"
+        <RadioButton GroupName="keyword_op" x:Name="__keyword_and" Grid.Column="2" Content="AND"
+                     HorizontalAlignment="Left"
                      Margin="10,461,0,0" VerticalAlignment="Top" Height="15" Width="45" />
         <Button Grid.Column="2" Content="시작" HorizontalAlignment="Left" Margin="128,25,0,0"
                 VerticalAlignment="Top" Click="Button_Click_1" Height="20" Width="105" />
@@ -56,9 +58,11 @@
                 VerticalAlignment="Top" Height="27" Width="120" Click="__time_add_Click"
                 RenderTransformOrigin="0.504,1.187" />
         <RadioButton GroupName="time_op" x:Name="__time_before" Grid.Column="4" Content="전" HorizontalAlignment="Left"
-                     Margin="83,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.763" IsChecked="True" Height="15" Width="55"/>
+                     Margin="83,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.763" IsChecked="True"
+                     Height="15" Width="55" />
         <RadioButton GroupName="time_op" x:Name="__time_after" Grid.Column="4" Content="후" HorizontalAlignment="Left"
-                     Margin="83,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.712,-0.176" Height="15" Width="44" />
+                     Margin="83,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.712,-0.176" Height="15"
+                     Width="44" />
         <RadioButton GroupName="keyword" x:Name="__keyword_include" Content="필수" HorizontalAlignment="Left"
                      Margin="34,355,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="91"
                      Checked="__keyword_include_Checked" IsChecked="True" />
@@ -84,16 +88,21 @@
                      Grid.ColumnSpan="3" />
         <Label Content="제목에 포함된 키워드" HorizontalAlignment="Left" Margin="34,329,0,0" VerticalAlignment="Top"
                Grid.ColumnSpan="2" Width="126" Height="26" />
-        <Label Grid.Column="2" Content="작성자" HorizontalAlignment="Left" Margin="176,329,0,0" VerticalAlignment="Top" Height="26" Width="47" />
+        <Label Grid.Column="2" Content="작성자" HorizontalAlignment="Left" Margin="176,329,0,0" VerticalAlignment="Top"
+               Height="26" Width="47" />
         <Label Grid.Column="2" Content="작성 시간" HorizontalAlignment="Left" Margin="483,329,0,0" VerticalAlignment="Top"
                Grid.ColumnSpan="2" Height="26" Width="36" />
-        <Label Grid.Column="2" Content="진행 상태" HorizontalAlignment="Left" Margin="340,19,0,0" VerticalAlignment="Top" Height="26" Width="64" />
-        <Label Content="저장 위치" Margin="22,90,70,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26"/>
-        <TextBox Name="__path" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="22,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" IsReadOnly="True" Height="18"/>
-        <Button x:Name="__browse" Grid.Column="2" Content="..." HorizontalAlignment="Left" Margin="200,114,0,0" VerticalAlignment="Top" Width="33" Click="__browse_Click" Height="20"/>
-        <ProgressBar x:Name="__status_bar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="342,236,0,0" VerticalAlignment="Top" Width="410" Grid.ColumnSpan="3"/>
-        <GroupBox Header="기본 설정" Grid.ColumnSpan="3" Margin="10,10,216,307"/>
-        <GroupBox Header="검색 조건" Grid.ColumnSpan="6" Margin="10,318,33,0"/>
+        <Label Grid.Column="2" Content="진행 상태" HorizontalAlignment="Left" Margin="340,19,0,0" VerticalAlignment="Top"
+               Height="26" Width="64" />
+        <Label Content="저장 위치" Margin="22,90,70,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26" />
+        <TextBox Name="__path" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="22,116,0,0" TextWrapping="Wrap"
+                 VerticalAlignment="Top" Width="337" IsReadOnly="True" Height="18" />
+        <Button x:Name="__browse" Grid.Column="2" Content="..." HorizontalAlignment="Left" Margin="200,114,0,0"
+                VerticalAlignment="Top" Width="33" Click="__browse_Click" Height="20" />
+        <ProgressBar x:Name="__status_bar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="342,236,0,0"
+                     VerticalAlignment="Top" Width="410" Grid.ColumnSpan="3" />
+        <GroupBox Header="기본 설정" Grid.ColumnSpan="3" Margin="10,10,216,307" />
+        <GroupBox Header="검색 조건" Grid.ColumnSpan="6" Margin="10,318,33,0" />
 
     </Grid>
 </Window>

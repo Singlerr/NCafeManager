@@ -50,6 +50,7 @@ namespace NCafeManager
         {
             __status_bar.Value = v;
         }
+
         public void AppendLog(string l)
         {
             log.Items.Add(l);
@@ -68,9 +69,8 @@ namespace NCafeManager
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            if(HtmlCrawler.GetInstance().GetDriver() != null)
+            if (HtmlCrawler.GetInstance().GetDriver() != null)
                 HtmlCrawler.GetInstance().GetDriver().Quit();
-           
         }
 
         private void __keyword_add_Click(object sender, RoutedEventArgs e)
@@ -139,11 +139,12 @@ namespace NCafeManager
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(!__url.Text.Trim().StartsWith(Const.BaseDomain))
+            if (!__url.Text.Trim().StartsWith(Const.BaseDomain))
             {
                 MessageBox.Show("알맞은 카페 주소를 입력해주십시오.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             Const.CafeDomain = __url.Text;
             if (__path.Text.Length <= 0)
             {
@@ -156,8 +157,7 @@ namespace NCafeManager
                 MessageBox.Show("적어도 하나 이상의 검색할 게시판이 있어야 합니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            
-            
+
 
             var articleFetchPipeline = new ParentPipeline();
             Pipeline[] articleFetchPipelines =
@@ -203,7 +203,7 @@ namespace NCafeManager
                     var w = t.GetAwaiter();
                     w.OnCompleted(() =>
                     {
-                        MessageBox.Show("모든 작업이 완료되었습니다.","완료",MessageBoxButton.OK,MessageBoxImage.Information);
+                        MessageBox.Show("모든 작업이 완료되었습니다.", "완료", MessageBoxButton.OK, MessageBoxImage.Information);
                     });
                     t.Start();
                     t.Wait();
@@ -299,6 +299,7 @@ namespace NCafeManager
                     MessageBox.Show("이미 해당 게시판이 추가되어있습니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+
                 __menus.Items.Add(__menu.Text);
             }
         }
@@ -311,10 +312,7 @@ namespace NCafeManager
         {
             using (var dialog = new FolderBrowserDialog())
             {
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    __path.Text = dialog.SelectedPath;
-                }
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) __path.Text = dialog.SelectedPath;
             }
         }
     }

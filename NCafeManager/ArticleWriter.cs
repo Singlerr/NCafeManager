@@ -9,49 +9,49 @@ namespace NCafeManager
 {
     internal class ArticleWriter
     {
-        private List<KeyValuePair<string, PackedArticles>> _packedArticles;
+        private readonly List<KeyValuePair<string, PackedArticles>> _packedArticles;
 
         public ArticleWriter(List<KeyValuePair<string, PackedArticles>> packedArticles)
         {
             _packedArticles = packedArticles;
         }
+
         private string EscapeIllegalCSVCharacters(string str)
         {
-            string data = str;
+            var data = str;
             if (data.Contains("\""))
             {
                 data = data.Replace("\"", "\"\"");
-                data = String.Format("\"{0}\"", data);
+                data = string.Format("\"{0}\"", data);
             }
-            else if (data.Contains(",") || data.Contains(System.Environment.NewLine))
+            else if (data.Contains(",") || data.Contains(Environment.NewLine))
             {
-                data = String.Format("\"{0}\"", data);
+                data = string.Format("\"{0}\"", data);
             }
 
             return data;
         }
+
         public Task Write(string parentPath)
         {
             return new Task(delegate
             {
-           
                 _packedArticles.ForEach(pair =>
                 {
                     var menuName = pair.Key;
                     var packedArticles = pair.Value;
                     var filteredMenuName = menuName;
                     foreach (var invalidChar in Path.GetInvalidPathChars())
-                    {
-                          filteredMenuName = filteredMenuName.Replace(invalidChar.ToString(), "");
-                    }
+                        filteredMenuName = filteredMenuName.Replace(invalidChar.ToString(), "");
 
                     var path = parentPath + "/" + filteredMenuName + ".csv";
-                    using (var writer = new StreamWriter(path,false,Encoding.UTF8))
+                    using (var writer = new StreamWriter(path, false, Encoding.UTF8))
                     {
                         writer.WriteLine("제목,작성자,작성 시간,URL");
                         packedArticles.Articles.ForEach(article =>
                         {
-                            writer.WriteLine("{0},{1},{2},{3}",EscapeIllegalCSVCharacters(article.Title),EscapeIllegalCSVCharacters(article.Author),article.Time,article.PathUrl);
+                            writer.WriteLine("{0},{1},{2},{3}", EscapeIllegalCSVCharacters(article.Title),
+                                EscapeIllegalCSVCharacters(article.Author), article.Time, article.PathUrl);
                         });
                         writer.Flush();
                         writer.Close();

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using NCafeManager;
 using OpenQA.Selenium;
@@ -18,7 +17,6 @@ namespace Pipelines
         {
             return new Task<object>(delegate
             {
-
                 MainWindow.GetInstance().Dispatcher.Invoke(() =>
                 {
                     MainWindow.GetInstance().ResetProgressBar();
@@ -39,7 +37,8 @@ namespace Pipelines
                 var rootNode = client.GetDriver().FindElement(By.XPath("//div[@class='box-g-m']"));
 
                 var menuNodes = rootNode.FindElements(By.XPath("//a[@target='cafe_main']"));
-                MainWindow.GetInstance().Dispatcher.Invoke(() => MainWindow.GetInstance().SetProgressBarMax(menuNodes.Count));
+                MainWindow.GetInstance().Dispatcher
+                    .Invoke(() => MainWindow.GetInstance().SetProgressBarMax(menuNodes.Count));
                 foreach (var menuNode in menuNodes)
                 {
                     var menuName = menuNode.Text;
@@ -60,10 +59,7 @@ namespace Pipelines
                     });
                 }
 
-                MainWindow.GetInstance().Dispatcher.Invoke(delegate
-                {
-                    MainWindow.GetInstance().ClearLog();
-                });
+                MainWindow.GetInstance().Dispatcher.Invoke(delegate { MainWindow.GetInstance().ClearLog(); });
                 return urlPacker;
             });
         }

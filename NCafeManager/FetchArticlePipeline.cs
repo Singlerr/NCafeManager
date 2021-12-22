@@ -30,7 +30,8 @@ namespace Pipelines
 
                     var client = HtmlCrawler.GetInstance();
                     var waiter = new WebDriverWait(client.GetDriver(), new TimeSpan(0, 0, 30));
-                    MainWindow.GetInstance().Dispatcher.Invoke(() => MainWindow.GetInstance().SetProgressBarMax(packer.GetUrlList().Count));
+                    MainWindow.GetInstance().Dispatcher.Invoke(() =>
+                        MainWindow.GetInstance().SetProgressBarMax(packer.GetUrlList().Count));
                     foreach (var packedUrl in packer.GetUrls())
                     {
                         var urlPacker = new UrlPacker();
@@ -44,12 +45,11 @@ namespace Pipelines
                         var pageUrl = path.Remove(path.Length - 1);
                         urlPacker.Add(new PackedUrl(packedUrl.Name, pageUrl));
                         packerMap[packedUrl.Name] = urlPacker;
-                        MainWindow.GetInstance().Dispatcher.Invoke(() => MainWindow.GetInstance().IncrementProgressBar(1));
+                        MainWindow.GetInstance().Dispatcher
+                            .Invoke(() => MainWindow.GetInstance().IncrementProgressBar(1));
                     }
-                    MainWindow.GetInstance().Dispatcher.Invoke(delegate
-                    {
-                        MainWindow.GetInstance().ClearLog();
-                    });
+
+                    MainWindow.GetInstance().Dispatcher.Invoke(delegate { MainWindow.GetInstance().ClearLog(); });
                     return packerMap;
                 }
 
