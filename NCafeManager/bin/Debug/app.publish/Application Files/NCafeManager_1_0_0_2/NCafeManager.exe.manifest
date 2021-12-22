@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="NCafeManager.exe" version="1.0.0.2" publicKeyToken="d56b0f185778e1b8" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="NCafeManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="NCafeManager.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC 매니페스트 옵션
+             Windows 사용자 계정 컨트롤 수준을 변경하려면 
+             requestedExecutionLevel 노드를 다음 중 하나로 바꿉니다.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            requestedExecutionLevel 요소를 지정하면 파일 및 레지스트리 가상화를 사용하지 않습니다. 
+            이전 버전과의 호환성을 위해 애플리케이션에 가상화가 필요한 경우
+            이 요소를 제거합니다.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BoDi.dll" size="26624">
+      <assemblyIdentity name="BoDi" version="1.5.0.0" publicKeyToken="FF7CD5EA2744B496" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ao+uPEdGlxrsEPUDfEErLPa0W1rHn+EbFuSguj+UjsU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NCafeManager.exe" size="38896">
+      <assemblyIdentity name="NCafeManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>DQOf1YNRWjtmceRIUSSSYCXtdFk1geBAplk0BjxzhcQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SeleniumExtras.WaitHelpers.dll" size="12800">
+      <assemblyIdentity name="SeleniumExtras.WaitHelpers" version="3.11.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Tdsbk0gxByXC60rwj2jNJsKddCB4r1sDCjq7lwPUyUU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.dll" size="7857664">
+      <assemblyIdentity name="WebDriver" version="4.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Vdk4Y3igRreQ1d63IC0g7SQ+BCLanFm5uPLIJZm4ZsE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebDriver.Support.dll" size="35328">
+      <assemblyIdentity name="WebDriver.Support" version="4.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WLkmuM+hBSinjWxd9KWh5F+DerIW8+sZy78WwsH4v2o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="NCafeManager.exe.config" size="186">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zNhdYIJVNoJbhoWCbFWb9Z5Aj06gpAoKx3CjsBM1iY8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- 이 애플리케이션이 테스트되고 함께 작동하도록 설계된 Windows 버전
+           목록입니다. 해당 요소의 주석 처리를 제거하면 Windows에서
+           호환 가능성이 가장 큰 환경을 자동으로 선택합니다. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-PRP9CDR\Singlerr" issuerKeyHash="3134e3fc5eb631a098bc7d84e415e3e429b49017" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>G0K+E5cw8tnBlhoQuc1Z4End0ZyNhpniKWyvGVNKS6o=</DigestValue></Reference></SignedInfo><SignatureValue>CZ9ZPQuvvhLv+n9dnGQOdTFlS9eV9K4BgNBKos8VVFBHXTq0Ri6HKBHvpARAKgcPTNNjzazYNp+q6PT3WPOCRQswpoFOAtO0JbcBn5LmMl8p/8EoJxHwvPsn282/TOoRgK+Rz4YXMHGtH2g24fD8cf8izi1PG0gE/yM8dDSZRqM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>xcz5TbKG1hUyrogqXKbGV6/A7asIXo3uQkYey+CdBtVjDLOF4+YpJKN6uYxXFhxV9fn0kT1tXCK85iVNLJvfYUZKWDwQQbhKmGxJiyMsrLjMyul3e/6igPgHsdUeiA5GH2lK7Tsl+PwLgijTFuHL8yCMTfE96rTYN0IKnNspKyk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="aa4b4a5319af6c29e299868d9cd1dd49e059cdb9101a96c1d9f2309713be421b" Description="" Url=""><as:assemblyIdentity name="NCafeManager.exe" version="1.0.0.2" publicKeyToken="d56b0f185778e1b8" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-PRP9CDR\Singlerr</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Pog2sIC7b4P2lYM4/Hr9THf6Dqoe34XASzkJ2X2DoEw=</DigestValue></Reference></SignedInfo><SignatureValue>BVrfLcZcrtW4JxDSV9BK0536E2usA60qdIPlNECGlTfaJR+619we8hnl5/C9jMKwQaRXkm/Rg8QmCIClrV+pmQ+FKUuZobJoD/PNhxi3F3MNRfniNyLYUcqCzSxghin7gyeE3vaTul9dVqbjxPcdi58CwVq2ZtRxgLPlHoe4714=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>xcz5TbKG1hUyrogqXKbGV6/A7asIXo3uQkYey+CdBtVjDLOF4+YpJKN6uYxXFhxV9fn0kT1tXCK85iVNLJvfYUZKWDwQQbhKmGxJiyMsrLjMyul3e/6igPgHsdUeiA5GH2lK7Tsl+PwLgijTFuHL8yCMTfE96rTYN0IKnNspKyk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB+TCCAWKgAwIBAgIQEnzRZ2BfhpJO8+yJXTd/6zANBgkqhkiG9w0BAQsFADA7MTkwNwYDVQQDHjAARABFAFMASwBUAE8AUAAtAFAAUgBQADkAQwBEAFIAXABTAGkAbgBnAGwAZQByAHIwHhcNMjExMjIyMDMxNDQ3WhcNMjIxMjIyMDkxNDQ3WjA7MTkwNwYDVQQDHjAARABFAFMASwBUAE8AUAAtAFAAUgBQADkAQwBEAFIAXABTAGkAbgBnAGwAZQByAHIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMXM+U2yhtYVMq6IKlymxlevwO2rCF6N7kJGHsvgnQbVYwyzhePmKSSjermMVxYcVfX59JE9bVwivOYlTSyb32FGSlg8EEG4SphsSYsjLKy4zMrpd3v+ooD4B7HVHogORh9pSu07Jfj8C4Io0xbhy/MgjE3xPeq02DdCCpzbKSspAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAgbVPgmVD+lWSycbD9dgO21RLkrneLmg1UsmzrUCrx7mNUQ1k6sixUtqg+rBl1EN5h5jpByX1GJlQRTFsIbabe36Xu/Hq42fGkZwFvIqflzrHTpHES8I/Wk1rCws+FMd8T9ugCswNbuSNNSBDWlp5X8v37DGXna9cP3VfzJeWahs=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

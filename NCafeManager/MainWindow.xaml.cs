@@ -68,8 +68,9 @@ namespace NCafeManager
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            HtmlCrawler.GetInstance().GetDriver().Quit();
-            HtmlCrawler.GetInstance().GetDriver().Close();
+            if(HtmlCrawler.GetInstance().GetDriver() != null)
+                HtmlCrawler.GetInstance().GetDriver().Quit();
+           
         }
 
         private void __keyword_add_Click(object sender, RoutedEventArgs e)
